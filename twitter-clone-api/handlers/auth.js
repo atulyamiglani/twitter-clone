@@ -41,7 +41,6 @@ exports.signin = async function(req, res, next) {
         })
         // else send an error in next parameter
         
-
     }
 }; 
 
