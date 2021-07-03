@@ -7,13 +7,19 @@ const errorHandler = require("./handlers/error");
 const authRoutes = require("./routes/auth");
 const messagesRoutes = require("./routes/messages");
 const db = require("./models");
+const { loginRequired, ensureCorrectUser } = require("./middleware/auth");
 const PORT = 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
 
 app.use("/api/auth", authRoutes);
-app.use("/api/auth/:id/messages", messagesRoutes);
+app.use(
+  "/api/auth/:id/messages",
+  loginRequired,
+  ensureCorrectUser,
+  messagesRoutes
+);
 
 app.use(function (req, res, next) {
   let err = new Error("Not Found");

@@ -1,8 +1,8 @@
-const express = require('express'); 
-const router = express.Router(); 
-const {signup, signin} = require('../handlers/auth'); 
+import { Router } from "express";
+const router = Router();
+import { signup, signin } from "../handlers/auth";
 
 router.post("/signup", signup);
 router.post("/signin", signin);
 
-module.exports = router; 
+export default router;
