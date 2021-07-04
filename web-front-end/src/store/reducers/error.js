@@ -3,11 +3,9 @@ import { ADD_ERROR, REMOVE_ERROR } from "../actionTypes";
 export default (state = { message: null }, action) => {
   switch (action.type) {
     case ADD_ERROR:
-      let newState = { ...state, message: action.errorMessage };
-      return newState;
+      return { ...state, message: action.errorMessage };
     case REMOVE_ERROR:
-      let newState = { ...state, message: null };
-      return newState;
+      return { ...state, message: null };
     default:
       return state;
   }
