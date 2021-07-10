@@ -8,7 +8,9 @@ const Main = (props) => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/"></Route>
+        <Route exact path="/">
+          <Homepage />
+        </Route>
         <Route exact path="/signup">
           <AuthForm />
         </Route>
