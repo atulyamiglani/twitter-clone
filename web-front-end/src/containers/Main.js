@@ -12,16 +12,10 @@ const Main = (props) => {
           <Homepage />
         </Route>
         <Route exact path="/signup">
-          <AuthForm />
+          <AuthForm signUp={true} />
         </Route>
-        <Route
-          exact
-          path="/signin"
-          render={(props) => {
-            return <AuthForm />;
-          }}
-        >
-          <AuthForm />
+        <Route exact path="/signin">
+          <AuthForm signUp={false} />
         </Route>
       </Switch>
     </Router>

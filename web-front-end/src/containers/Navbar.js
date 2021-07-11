@@ -8,33 +8,31 @@ import AuthForm from "../components/AuthForm";
 const styles = {};
 
 const Navbar = () => (
-  <Router>
-    <AppBar>
-      <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu"></IconButton>
-        <IconButton variant="h6" component={Link} to={"/"} render={Homepage}>
-          {" "}
-          Twitter, but better
-        </IconButton>
-        <Button
-          component={Link}
-          to={"/signup"}
-          render={AuthForm}
-          color="inherit"
-        >
-          Signup
-        </Button>
-        <Button
-          component={Link}
-          to={"/signin"}
-          render={AuthForm}
-          color="inherit"
-        >
-          Login
-        </Button>
-      </Toolbar>
-    </AppBar>
-  </Router>
+  <AppBar>
+    <Toolbar>
+      <IconButton edge="start" color="inherit" aria-label="menu"></IconButton>
+      <IconButton variant="h6" component={Link} to={"/"} render={Homepage}>
+        {" "}
+        Twitter, but better
+      </IconButton>
+      <Button
+        component={Link}
+        to={"/signup"}
+        //render={AuthForm}
+        color="inherit"
+      >
+        Signup
+      </Button>
+      <Button
+        component={Link}
+        to={"/signin"}
+        //render={AuthForm}
+        color="inherit"
+      >
+        Login
+      </Button>
+    </Toolbar>
+  </AppBar>
 );
 
 const mapStateToProps = (state) => {

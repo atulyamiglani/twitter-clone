@@ -8,6 +8,9 @@ const Homepage = (props) => {
       <Button component={Link} to={"/signup"}>
         Signup
       </Button>
+      <Button component={Link} to={"/signin"}>
+        Signin
+      </Button>
     </div>
   );
 };
