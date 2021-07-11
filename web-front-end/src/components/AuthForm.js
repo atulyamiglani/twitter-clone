@@ -8,23 +8,37 @@ let user = {
   pictureURL: "",
 };
 
-// user information comes through props
+// sign up or log in should come in through props
+
 const AuthForm = (props) => {
   const [userInfo, setUserInfo] = useState(user);
   return (
     <>
       <div>
-        <h1>this is not showing </h1>
+        <h1>Navbar comes over this, style it better </h1>
         <form>
           <input
             type="text"
             name="email"
-            value={userInfo}
+            value={userInfo.email}
             onChange={(e) => {
+              setUserInfo((prevValues) => ({
+                ...prevValues,
+                [e.target.name]: e.target.value,
+              }));
               console.log(userInfo);
-              setUserInfo(e.target.value);
             }}
           />
+
+          {/* <input
+            type="text"
+            name="username"
+            value={userInfo}
+            onChange={(e) => {
+              console.log(userInfo.username);
+              setUserInfo(e.target.value);
+            }}
+          /> */}
         </form>
       </div>
     </>
