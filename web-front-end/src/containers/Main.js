@@ -1,12 +1,14 @@
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import Homepage from "../components/Homepage";
+import Navbar from "./Navbar";
 import { withRouter, BrowserRouter as Router } from "react-router-dom";
 import AuthForm from "../components/AuthForm";
 
 const Main = (props) => {
   return (
     <Router>
+      <Navbar />
       <Switch>
         <Route exact path="/">
           <Homepage />
