@@ -15,20 +15,10 @@ const Navbar = () => (
         {" "}
         Twitter, but better
       </IconButton>
-      <Button
-        component={Link}
-        to={"/signup"}
-        //render={AuthForm}
-        color="inherit"
-      >
+      <Button component={Link} to={"/signup"} color="inherit">
         Signup
       </Button>
-      <Button
-        component={Link}
-        to={"/signin"}
-        //render={AuthForm}
-        color="inherit"
-      >
+      <Button component={Link} to={"/signin"} color="inherit">
         Login
       </Button>
     </Toolbar>

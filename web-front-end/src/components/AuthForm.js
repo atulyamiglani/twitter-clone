@@ -1,4 +1,6 @@
+import { Button } from "@material-ui/core";
 import { useState } from "react";
+import authUser from "../store/actions/authUser";
 
 // user stuff for the auth form
 let user = {
@@ -13,6 +15,7 @@ let user = {
 const AuthForm = (props) => {
   const [userInfo, setUserInfo] = useState(user);
   const { signUp } = props;
+  const { submitButtonText } = props;
   const signUpFields = (
     <>
       <div>
@@ -30,7 +33,6 @@ const AuthForm = (props) => {
             console.log(userInfo);
           }}
         />
-
         <label>Profile picture URL</label>
         <input
           type="text"
@@ -47,6 +49,16 @@ const AuthForm = (props) => {
       </div>
     </>
   );
+
+  const handleAuthUser = (e) => {
+    e.preventDefault();
+    console.log("doing something");
+    const authType = signUp ? "signup" : "signin";
+    authUser(userInfo, authType);
+    //.then((res) => {
+    //console.log("yoo" + res);
+    //});
+  };
 
   const signInFeilds = (
     <>
@@ -82,14 +94,16 @@ const AuthForm = (props) => {
             }}
           />
         </form>
+        <Button onClick={handleAuthUser}>{submitButtonText}</Button>
       </div>
     </>
   );
 
   if (signUp) {
     return [signUpFields, signInFeilds];
+  } else {
+    return signInFeilds;
   }
-  return signInFeilds;
 };
 
 // const handleSubmitUserInfo = (userInfo) => {
