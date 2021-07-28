@@ -2,6 +2,7 @@
 
 import { SET_CURRENT_USER } from "../actionTypes";
 import { apiCall } from "../../services/apiCall";
+import store from "..";
 
 export const setCurrentUser = (user) => {
   return {
@@ -16,7 +17,6 @@ export const setCurrentUser = (user) => {
 // change the current state using dispatch
 
 export const authUser = (userData, type) => {
-  console.log("i am getting to the function here");
   {
     console.log("before makeing the api call");
     return new Promise((resolve, reject) => {
@@ -26,7 +26,9 @@ export const authUser = (userData, type) => {
           console.log("made the api call perfectly and got the data back yeet");
           const { token, ...user } = res;
           window.localStorage.setItem("token", token);
-          //dispatch(setCurrentUser(user));
+          store.dispatch(setCurrentUser(user));
+          console.log(user);
+          console.log("user stateeee" + store.getState().user);
           resolve();
         })
         .catch((err) => {

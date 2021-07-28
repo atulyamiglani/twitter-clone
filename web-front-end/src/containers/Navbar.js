@@ -3,7 +3,6 @@ import { Toolbar, IconButton, Button } from "@material-ui/core";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import Homepage from "../components/Homepage";
-import AuthForm from "../components/AuthForm";
 
 const styles = {};
 
